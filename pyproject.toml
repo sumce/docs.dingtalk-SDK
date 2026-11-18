@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ddocs"
+version = "0.1.0"
+description = "钉钉文档(docs.dingtalk.com)网页版 API 封装: 扫码登录 / 列文件 / 收藏 / 下载"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "typer>=0.12",
+    "qrcode>=7.4",
+]
+
+[project.optional-dependencies]
+rich = ["rich>=13"]
+collab = ["websockets>=12"]
+sheets = ["openpyxl>=3.1"]
+dev = ["pytest>=8", "respx>=0.21", "rich>=13", "websockets>=12", "openpyxl>=3.1"]
+
+[project.scripts]
+ddocs = "ddocs.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["ddocs"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

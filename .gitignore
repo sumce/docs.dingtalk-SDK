@@ -1,0 +1,23 @@
+# 抓包原始数据(含会话 Cookie, 严禁入库)
+burp.xml
+websocket_history.xml
+login_qr.png
+
+# 解析产物(可用 tools/parse_*.py 从抓包再生成)
+analysis/
+
+# 本地下载的真实文件
+downloads/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+dist/
+build/
+*.egg-info/
+
+# 凭证(双保险: 默认在 ~/.ddocs/, 若放到仓库目录也不入库)
+credentials.json
+*.credentials.json
